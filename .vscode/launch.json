@@ -6,7 +6,7 @@
   "configurations": [
     {
       "name": "Launch Mergington WebApp",
-      "type": "debugpy",
+      "type": "python",
       "request": "launch",
       "module": "uvicorn",
       "args": [
