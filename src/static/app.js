@@ -936,7 +936,11 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", (e) => deleteAnnouncement(e.target.dataset.id));
       });
     } catch (err) {
-      announcementList.innerHTML = `<li style="color:var(--error)">${err.message}</li>`;
+      announcementList.innerHTML = "";
+      const li = document.createElement("li");
+      li.style.color = "var(--error)";
+      li.textContent = err && err.message ? err.message : "An error occurred while loading announcements.";
+      announcementList.appendChild(li);
     }
   }
 
