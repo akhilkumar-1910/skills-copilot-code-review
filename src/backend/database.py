@@ -213,8 +213,12 @@ initial_teachers = [
     }
 ]
 
+from datetime import datetime, timedelta
+
+# Example announcement with expiration (expires in 7 days)
 initial_announcement = {
     "message": "📢 Activity registration is now open. Don't lose your spot!",
-    "end_date": None,
+    "start_date": datetime.utcnow(),
+    "end_date": datetime.utcnow() + timedelta(days=7),
     "active": True
 }

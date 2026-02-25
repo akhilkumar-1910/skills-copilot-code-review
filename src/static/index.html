@@ -25,6 +25,10 @@
           <button id="logout-button">Logout</button>
         </div>
       </div>
+      <button id="manage-announcements-btn" class="icon-button hidden" title="Manage Announcements">
+        <span class="announcement-icon">📢</span>
+        <span>Manage Announcements</span>
+      </button>
     </div>
   </header>
 
@@ -133,6 +137,41 @@
     </div>
   </div>
 
+  <!-- Announcement Management Modal -->
+  <div id="announcement-modal" class="modal hidden">
+    <div class="modal-content announcement-modal-content">
+      <span class="close-announcement-modal">&times;</span>
+      <h3>Manage Announcements</h3>
+      <div id="announcement-list-section">
+        <ul id="announcement-list"></ul>
+      </div>
+      <button id="add-announcement-btn" class="primary-btn">Add Announcement</button>
+      <form id="announcement-form" class="hidden">
+        <input type="hidden" id="announcement-id" />
+        <div class="form-group">
+          <label for="announcement-message">Message:</label>
+          <textarea id="announcement-message" required maxlength="200"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="announcement-start-date">Start Date (optional):</label>
+          <input type="datetime-local" id="announcement-start-date" />
+        </div>
+        <div class="form-group">
+          <label for="announcement-end-date">Expiration Date:</label>
+          <input type="datetime-local" id="announcement-end-date" required />
+        </div>
+        <div class="form-group">
+          <label for="announcement-active">
+            <input type="checkbox" id="announcement-active" checked /> Active
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary-btn">Save</button>
+          <button type="button" id="cancel-announcement-btn" class="secondary-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 
