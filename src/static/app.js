@@ -861,8 +861,25 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeRangeFilter,
   };
 
+  // Load and display the announcement banner
+  async function loadAnnouncement() {
+    try {
+      const response = await fetch("/announcement");
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data && data.message) {
+        const banner = document.getElementById("announcement-banner");
+        banner.textContent = data.message;
+        banner.removeAttribute("hidden");
+      }
+    } catch (error) {
+      console.error("Error loading announcement:", error);
+    }
+  }
+
   // Initialize app
   checkAuthentication();
   initializeFilters();
   fetchActivities();
+  loadAnnouncement();
 });
